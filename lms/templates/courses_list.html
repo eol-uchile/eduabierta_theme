@@ -4,6 +4,7 @@
 
 <%! from course_info.helpers import get_course_class %>
 % if settings.FEATURES.get('SHOW_COURSES_BY_CLASS'):
+<%  cats,course_class = get_course_class(courses) %>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <style>
@@ -34,8 +35,6 @@
 }*/
 
 </style>
-
-<%  cats,course_class = get_course_class(courses) %>
 %for categ in cats:
   %if categ['show_opt'] == 2 or (categ['show_opt'] == 1 and len(course_class[categ['id']]['courses']) > 0):
 <div class="">
